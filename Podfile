@@ -7,6 +7,9 @@ target 'WindAssignment' do
 
   # Pods for WindAssignment
   pod 'Alamofire'
+  pod 'IQKeyboardManagerSwift'
+  pod 'Kingfisher', :git => 'https://github.com/onevcat/Kingfisher.git', :branch => 'version6-xcode13'
+  pod 'Reusable'
 
   target 'WindAssignmentTests' do
     inherit! :search_paths
