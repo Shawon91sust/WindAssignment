@@ -38,9 +38,7 @@ class PinField: UIView, NibOwnerLoadable {
     
     func setup() {
         
-        firstField.becomeFirstResponder()
-        firstBar.backgroundColor = .black
-        
+
         firstField.delegate = self
         secondField.delegate = self
         thirdField.delegate = self
