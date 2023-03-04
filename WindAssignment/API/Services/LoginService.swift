@@ -52,7 +52,6 @@ class LoginService {
         let data = jsonStr.data(using: .utf8)!
         
         if let response = try? JSONDecoder().decode(LoginResponse.self, from: data) {
-            print("Success")
             success(response)
         } else {
             fail(.invalidResponse)

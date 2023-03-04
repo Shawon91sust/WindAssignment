@@ -20,6 +20,7 @@ import Alamofire
 //}
 
 enum NetworkError: Error {
+    case encodingError
     case decodingError(DecodingError)
     case apiError(Error)
     case urlFailed
@@ -28,6 +29,8 @@ enum NetworkError: Error {
     
     var localizedDescription: String {
         switch self {
+        case .encodingError:
+            return "Parameter couldn't be encoded to json."
         case .decodingError(let error):
             return error.localizedDescription
         case .apiError(let error):

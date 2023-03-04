@@ -12,4 +12,8 @@ extension UIImage {
     @nonobjc class var logo: UIImage? {
         return UIImage(named: "logo")
     }
+    
+    @nonobjc class var placeholderImage: UIImage? {
+        return UIImage(named: "user")
+    }
 }

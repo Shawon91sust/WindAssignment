@@ -16,6 +16,11 @@ extension UILabel {
         layer.addSublayer(bottomLine)
     }
     
+    func addGradient() {
+        let gradient = UIImage.gradientImage(bounds: self.bounds, colors: [ UIColor("6E50FF"), UIColor("FF50BA")])
+        self.textColor = UIColor(patternImage: gradient)
+    }
+    
 }
 
 extension CALayer {

@@ -8,11 +8,12 @@
 import UIKit
 import Reusable
 import Combine
+import Kingfisher
 
 class SendFundViewController: UIViewController, StoryboardSceneBased {
     static let sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
-    var sendFundViewModel =  SendFundViewModel()
+    var sendFundViewModel:  SendFundViewModel
     private var bindings = Set<AnyCancellable>()
     
     let userData : UserData
@@ -20,8 +21,9 @@ class SendFundViewController: UIViewController, StoryboardSceneBased {
     @IBOutlet weak var navigationBar: NavigationBar!
     @IBOutlet weak var recipientView: UIView!
     @IBOutlet weak var imgView: UIImageView!
-    @IBOutlet weak var recipientDetailsLabel: UILabel!
-    @IBOutlet weak var gradientLabel: GradientLabel!
+    @IBOutlet weak var recipientNameLabel: GradientLabel!
+    @IBOutlet weak var walletAddressLabel: UILabel!
+    //@IBOutlet weak var gradientLabel: GradientLabel!
     
     @IBOutlet weak var balanceContainer: UIView!
     @IBOutlet weak var inputField: UITextField!
@@ -38,8 +40,9 @@ class SendFundViewController: UIViewController, StoryboardSceneBased {
     var remainingBalance : Double = 0.00
     
     // MARK: - Initialization
-    init?(coder: NSCoder, data: UserData) {
+    init?(coder: NSCoder, data: UserData, viewModel : SendFundViewModel) {
         self.userData = data
+        self.sendFundViewModel = viewModel
         super.init(coder: coder)
     }
     
@@ -61,22 +64,27 @@ class SendFundViewController: UIViewController, StoryboardSceneBased {
         
         recipientView.applyShadow(cornerRadius: 8.0)
         
-        let name = "@nadimh - 3CGH...UwvX"
-        recipientDetailsLabel.text = userData.userInfo.userName
-        recipientDetailsLabel.isHidden = true
-        gradientLabel.label.text = "@nadimh - 3CGH...UwvX"
+        let placeHolderImage : UIImage? = .placeholderImage
         
-
+        self.imgView.rounded()
+        
+        if let imageURLString = userData.userInfo.profileImage,  let imageURL = URL(string: imageURLString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") {
+            self.imgView.kf.indicatorType = .activity
+            self.imgView.kf.setImage(with: imageURL, placeholder: placeHolderImage, options: nil) { _ in
+                
+            }
+        }
+        
+        
+        recipientNameLabel.gradientColors = [ UIColor("6E50FF").cgColor, UIColor("FF50BA").cgColor]
+        recipientNameLabel.text = userData.userInfo.userName
+        
+        walletAddressLabel.text = " - " + userData.userInfo.walletAddress
         balanceContainer.gradientBackground(colors: [UIColor("#F6E8F5").cgColor, UIColor("#F7EAE9").cgColor, UIColor("#F6EFE0").cgColor], startPoint: .unitCoordinate(.top), endPoint: .unitCoordinate(.bottomLeft), andRoundCornersWithRadius: 12.0)
         balanceContainer.gradientBorder(width: 1.0, colors: [UIColor("#6E50FF"), UIColor("#FFA450")], startPoint: .unitCoordinate(.topRight), endPoint: .unitCoordinate(.bottomLeft), andRoundCornersWithRadius: 12.0)
         
-        inputField.font = AppFont.book.size(48.0)
-        inputField.becomeFirstResponder()
         maxButton.type = .max
-        maxButton.isSelect = true
-        
         maxBalance = userData.accountInfo.balance
-        sendFundViewModel.maxBalance = maxBalance
         remainingBalance = userData.accountInfo.balance
         balanceLabel.text = "Balance \(userData.accountInfo.currency) \(remainingBalance)"
         currencyLabel.text = userData.accountInfo.currency
@@ -128,26 +136,10 @@ class SendFundViewController: UIViewController, StoryboardSceneBased {
             sendFundViewModel.insufficientBalance
                 .receive(on: RunLoop.main)
                 .sink(receiveValue: { [weak self] insufficient in
-                    print(insufficient)
-                    
                     self?.insufficientLabel.isHidden = insufficient
                     self?.addFundButton.isHidden = insufficient
                 })
                 .store(in: &bindings)
-
-//            loginViewModel.loginResult
-//                .sink { completion in
-//                    switch completion {
-//                    case .failure(let error):
-//                        print(error.localizedDescription)
-//                        return
-//                    case .finished:
-//                        return
-//                    }
-//                } receiveValue: { [weak self] userData in
-//                    self?.navigateToSendFund(userData)
-//                }
-//                .store(in: &bindings)
             
         }
         

@@ -26,7 +26,6 @@ class SendFundViewModel : ObservableObject {
         .map { input, max in
 
             guard let value = Double(input) else { return false }
-            print(value)
             return (max >= value) }
         .eraseToAnyPublisher()
     
@@ -34,14 +33,12 @@ class SendFundViewModel : ObservableObject {
         .map { input, max in
 
             guard let value = Double(input) else { return max }
-
             return (max - value) }
         .eraseToAnyPublisher()
     
     private(set) lazy var maxSelected : AnyPublisher<Bool, Never> = Publishers.CombineLatest($inputValue, $maxBalance)
         .map { input, max in
             guard let value = Double(input) else { return false}
-            print(value)
             return (max == value) }
         .eraseToAnyPublisher()
     
@@ -49,31 +46,18 @@ class SendFundViewModel : ObservableObject {
         .map { input, max in
 
             guard let value = Double(input) else { return true }
-            print(value)
             return (max >= value) }
         .eraseToAnyPublisher()
     
     
     init() {}
     
-    // func
-    
     func remainingFund() -> AnyPublisher<Double, Never> {
         return Publishers.CombineLatest($inputValue, $maxBalance)
             .map { input, max  in
-                print(input)
-                
                 guard let value = Double(input) else { return max}
-                print(value)
                 return (max - value).roundToDecimal(5)
             }
             .eraseToAnyPublisher()
-    }
-    
-    
-
-    
-    
-
-    
+    }  
 }

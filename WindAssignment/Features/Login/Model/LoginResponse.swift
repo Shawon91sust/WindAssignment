@@ -30,7 +30,7 @@ struct AccountInfo: Codable {
 struct UserInfo: Codable {
     let id: Int
     let email, userName, walletAddress, smartContactWallet: String
-    let profileImage: String
+    let profileImage: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "Id"

@@ -39,6 +39,7 @@ extension UIView {
         border.colors = colors.map { return $0.cgColor }
         border.startPoint = startPoint
         border.endPoint = endPoint
+        border.shouldRasterize = true
         
         let mask = CAShapeLayer()
         let maskRect = CGRect(x: bounds.origin.x + width/2, y: bounds.origin.y + width/2,

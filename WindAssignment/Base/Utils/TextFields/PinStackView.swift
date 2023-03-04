@@ -65,12 +65,34 @@ class PinStackView: UIView, NibOwnerLoadable {
         textFieldsCollection.append(contentsOf: [firstField, secondField, thirdField, fourthField])
         barCollection.append(contentsOf: [firstBar, secondBar, thirdBar, fourthBar])
         
+        for tf in textFieldsCollection {
+            tf.isEnabled = false
+        }
+        
         
     }
     
     func startPinInput() {
-        textFieldsCollection[0].becomeFirstResponder()
+        for tf in textFieldsCollection {
+            tf.isEnabled = true
+        }
         barCollection[0].backgroundColor = .black
+    }
+    
+    func stopPinInput() {
+        //textFieldsCollection[0].becomeFirstResponder()
+        
+        for v in barCollection {
+            v.backgroundColor = .lightGray
+        }
+        
+        for tf in textFieldsCollection {
+            tf.text = ""
+            tf.isEnabled = false
+        }
+        
+        
+        
     }
     
 //    func setup() {
@@ -116,7 +138,6 @@ class PinStackView: UIView, NibOwnerLoadable {
         
         remainingStrStack = string.reversed().compactMap{String($0)}
         for textField in textFieldsCollection {
-            print(textField.debugDescription)
             if let charToAdd = remainingStrStack.popLast() {
                 textField.text = String(charToAdd)
             } else {

@@ -1,41 +1,41 @@
 //
-//  GradientLabel.swift
+//  GradientLabelAnother.swift
 //  WindAssignment
 //
-//  Created by Shawon Rejaul on 3/3/23.
+//  Created by Shawon Rejaul on 5/3/23.
 //
 
 import UIKit
 
+class GradientLabel: UILabel {
+    var gradientColors: [CGColor] = []
 
-class GradientLabel: UIStackView {
-      lazy var label: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = AppFont.book.size(16.0)
-        return label
-    }()
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
+    override func drawText(in rect: CGRect) {
+        if let gradientColor = drawGradientColor(in: rect, colors: gradientColors) {
+            self.textColor = gradientColor
+        }
+        super.drawText(in: rect)
     }
 
-    required init(coder: NSCoder) {
-        super.init(coder: coder)
-        setupView()
-    }
+    private func drawGradientColor(in rect: CGRect, colors: [CGColor]) -> UIColor? {
+        let currentContext = UIGraphicsGetCurrentContext()
+        currentContext?.saveGState()
+        defer { currentContext?.restoreGState() }
 
-    private func setupView() {
-        axis = .vertical
-        alignment = .leading
+        let size = rect.size
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        guard let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(),
+                                        colors: colors as CFArray,
+                                        locations: nil) else { return nil }
 
-        addArrangedSubview(label)
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        let gradient = UIImage.gradientImage(bounds: label.bounds, colors: [ UIColor("6E50FF"), UIColor("FF50BA")])
-        label.textColor = UIColor(patternImage: gradient)
+        let context = UIGraphicsGetCurrentContext()
+        context?.drawLinearGradient(gradient,
+                                    start: CGPoint.zero,
+                                    end: CGPoint(x: size.width, y: 0),
+                                    options: [])
+        let gradientImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        guard let image = gradientImage else { return nil }
+        return UIColor(patternImage: image)
     }
 }

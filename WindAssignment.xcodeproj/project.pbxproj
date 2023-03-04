@@ -28,6 +28,7 @@
 		CB9A5A1929AFD895007D6495 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A5A1029AFD895007D6495 /* Loader.swift */; };
 		CB9A5A1A29AFD895007D6495 /* AppProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A5A1129AFD895007D6495 /* AppProperties.swift */; };
 		CBB12DDB29B39726007E47B0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB12DDA29B39726007E47B0 /* UIViewController+Extension.swift */; };
+		CBB12DDD29B3D0B7007E47B0 /* GradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB12DDC29B3D0B7007E47B0 /* GradientLabel.swift */; };
 		CBB5C2E629B259F4002FA72B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5C2E529B259F4002FA72B /* LoginViewModel.swift */; };
 		CBB5C2E829B280B3002FA72B /* SendFundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5C2E729B280B3002FA72B /* SendFundViewModel.swift */; };
 		CBB5C2EA29B29AAA002FA72B /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5C2E929B29AA9002FA72B /* Double+Extension.swift */; };
@@ -56,7 +57,7 @@
 		CBCC73FF29B0F0720093E643 /* SendFundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC73FE29B0F0710093E643 /* SendFundViewController.swift */; };
 		CBCC740229B114450093E643 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC740129B114440093E643 /* UIView+Extension.swift */; };
 		CBCC740429B115D40093E643 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC740329B115D40093E643 /* UIImageView+Extension.swift */; };
-		CBCC740629B11D660093E643 /* GradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC740529B11D660093E643 /* GradientLabel.swift */; };
+		CBCC740629B11D660093E643 /* GradientStackLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC740529B11D660093E643 /* GradientStackLabel.swift */; };
 		CBCC740829B11DE40093E643 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC740729B11DE40093E643 /* UIImage+Extension.swift */; };
 		CBCC740A29B1254F0093E643 /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC740929B1254F0093E643 /* CGPoint+Extension.swift */; };
 		CBCC740C29B130140093E643 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC740B29B130140093E643 /* RoundedButton.swift */; };
@@ -105,6 +106,7 @@
 		CB9A5A1029AFD895007D6495 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		CB9A5A1129AFD895007D6495 /* AppProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppProperties.swift; sourceTree = "<group>"; };
 		CBB12DDA29B39726007E47B0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		CBB12DDC29B3D0B7007E47B0 /* GradientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLabel.swift; sourceTree = "<group>"; };
 		CBB5C2E529B259F4002FA72B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CBB5C2E729B280B3002FA72B /* SendFundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFundViewModel.swift; sourceTree = "<group>"; };
 		CBB5C2E929B29AA9002FA72B /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
@@ -137,7 +139,7 @@
 		CBCC73FE29B0F0710093E643 /* SendFundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFundViewController.swift; sourceTree = "<group>"; };
 		CBCC740129B114440093E643 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		CBCC740329B115D40093E643 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
-		CBCC740529B11D660093E643 /* GradientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLabel.swift; sourceTree = "<group>"; };
+		CBCC740529B11D660093E643 /* GradientStackLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientStackLabel.swift; sourceTree = "<group>"; };
 		CBCC740729B11DE40093E643 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		CBCC740929B1254F0093E643 /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		CBCC740B29B130140093E643 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -225,7 +227,8 @@
 				CB9A5A0D29AFD895007D6495 /* Logger.swift */,
 				CB9A5A0929AFD894007D6495 /* Reachability.swift */,
 				CB9A5A0A29AFD894007D6495 /* UDService.swift */,
-				CBCC740529B11D660093E643 /* GradientLabel.swift */,
+				CBCC740529B11D660093E643 /* GradientStackLabel.swift */,
+				CBB12DDC29B3D0B7007E47B0 /* GradientLabel.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				CB9A5A1A29AFD895007D6495 /* AppProperties.swift in Sources */,
 				CBB12DDB29B39726007E47B0 /* UIViewController+Extension.swift in Sources */,
 				CBCBA51B29AFB8DE0049B245 /* LoginViewController.swift in Sources */,
+				CBB12DDD29B3D0B7007E47B0 /* GradientLabel.swift in Sources */,
 				CBC45D7A29B1FD2B004EBA78 /* ServiceManager.swift in Sources */,
 				CBCA38E729B37A6500540290 /* UILabel+Extension.swift in Sources */,
 				CB9A5A1729AFD895007D6495 /* Fonts.swift in Sources */,
@@ -740,7 +744,7 @@
 				CBCC740429B115D40093E643 /* UIImageView+Extension.swift in Sources */,
 				CBCC73FF29B0F0720093E643 /* SendFundViewController.swift in Sources */,
 				CBCA38E529B3711800540290 /* OTPPinTextField.swift in Sources */,
-				CBCC740629B11D660093E643 /* GradientLabel.swift in Sources */,
+				CBCC740629B11D660093E643 /* GradientStackLabel.swift in Sources */,
 				CBCC73F229B086050093E643 /* BaseButton.swift in Sources */,
 				CBCC73EF29B082BF0093E643 /* UITextField+Extension.swift in Sources */,
 				CBCC740C29B130140093E643 /* RoundedButton.swift in Sources */,

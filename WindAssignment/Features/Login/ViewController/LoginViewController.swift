@@ -8,6 +8,10 @@
 import Combine
 import UIKit
 import Reusable
+import Toast_Swift
+
+
+
 
 class LoginViewController: UIViewController, StoryboardSceneBased {
     
@@ -46,8 +50,6 @@ class LoginViewController: UIViewController, StoryboardSceneBased {
         
         guard let text = textField.text else { return }
         textField.text = text.lowercased()
-        
-        print(userNameValidation(text.lowercased()))
     }
     
     func userNameValidation(_ text : String) -> Bool {
@@ -80,6 +82,9 @@ class LoginViewController: UIViewController, StoryboardSceneBased {
                 .sink(receiveValue: { [weak self] value in
                     if(value) {
                         self?.pinStackView.startPinInput()
+                    } else {
+                        self?.pinStackView.stopPinInput()
+                        self?.loginViewModel.pin = ""
                     }
                 })
                 .store(in: &bindings)
@@ -88,19 +93,21 @@ class LoginViewController: UIViewController, StoryboardSceneBased {
                 .assign(to: \.isLoading, on: self)
                 .store(in: &bindings)
             
-            loginViewModel.loginResult
-                .sink { completion in
-                    switch completion {
+            
+            
+            loginViewModel.$response
+                .receive(on: RunLoop.main)
+                .sink { [weak self] responseState in
+                    switch responseState {
+                    case .unknown:
+                        print("Unknown")
+                    case .success(let data) :
+                        self?.navigateToSendFund(data)
                     case .failure(let error):
                         print(error.localizedDescription)
-                        return
-                    case .finished:
-                        return
+                        self?.view.makeToast(error.localizedDescription, duration: 2.0)
                     }
-                } receiveValue: { [weak self] userData in
-                    self?.navigateToSendFund(userData)
-                }
-                .store(in: &bindings)
+                }.store(in: &bindings)
             
         }
         
@@ -114,9 +121,13 @@ class LoginViewController: UIViewController, StoryboardSceneBased {
     }
     
     func navigateToSendFund(_ data : UserData) {
+        self.view.endEditing(true)
+        let viewModel = SendFundViewModel()
+        viewModel.maxBalance = data.accountInfo.balance
+        
         let storyboard = Storyboards.sharedInstance.retrieveStoryBoard(BoardName.Main)
         let vc = storyboard.instantiateViewController(identifier: SendFundViewController.sceneIdentifier) { coder in
-            SendFundViewController(coder: coder, data: data)
+            SendFundViewController(coder: coder, data: data, viewModel: viewModel)
         }
         self.navigationController?.pushViewController(vc, animated: true)
         
@@ -141,9 +152,7 @@ extension LoginViewController : UITextFieldDelegate {
 extension LoginViewController: OTPDelegate {
     
     func didChangeValidity(isValid: Bool) {
-        
         loginViewModel.pin = pinStackView.getOTP()
-        print(pinStackView.getOTP())
     }
     
 }

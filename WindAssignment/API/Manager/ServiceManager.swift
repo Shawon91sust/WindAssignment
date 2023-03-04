@@ -24,16 +24,15 @@ class ServiceManager {
             fail(.urlFailed)
             return
         }
+
         
-        AF.request(urlObj, method: method, parameters: params)
+        AF.request(urlObj, method: method, parameters: params, encoding: JSONEncoding.default)
             .validate(statusCode: 200..<300)
             .responseDecodable(of: T.self) { response in
                 switch response.result {
                 case let .success(payload):
                     success(payload)
-
                 case .failure(let error):
-                    print(error.localizedDescription)
                     fail(.apiError(error))
                 }
             }

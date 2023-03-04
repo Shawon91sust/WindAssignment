@@ -10,6 +10,12 @@ import Combine
 import UIKit
 
 
+enum ResponseState {
+    case unknown
+    case success(_ data : UserData)
+    case failure(Error)
+}
+
 class LoginViewModel : ObservableObject {
    
     var loginService : LoginService
@@ -17,7 +23,10 @@ class LoginViewModel : ObservableObject {
     @Published var userName = ""
     @Published var pin = ""
     @Published var isLoading = false
-    let loginResult = PassthroughSubject<UserData, Error>()
+    @Published private(set) var response: ResponseState = .unknown
+    //@Published var userData : UserData?
+    //@Published var error : Error?
+    //let loginResult : CurrentValueSubject<UserData, Error>?
     
     private(set) lazy var isInputValid = Publishers.CombineLatest($userName, $pin)
         .map { [weak self] username, pin in
@@ -28,10 +37,7 @@ class LoginViewModel : ObservableObject {
     var isUserNameValid : AnyPublisher<Bool, Never> {
         $userName
         .map { [weak self] name in
-            print(name)
-            
             guard let valid = self?.userNameValidation(name) else { return false }
-            
             return valid }
         .eraseToAnyPublisher()
     }
@@ -43,26 +49,24 @@ class LoginViewModel : ObservableObject {
 
     func callLoginService() {
         isLoading = true
-        
-        print(userName)
-        print(pin)
-        
         let loginParams = ["user" : userName,
                            "pin" : pin
                           ]
         
-        loginService.performLoginDemo {[weak self] loginResponse in
+        print(loginParams)
+        
+        loginService.performLogin(params : loginParams) {[weak self] loginResponse in
             self?.isLoading = false
             
             guard let userdata = loginResponse.data else { return }
-            
-            self?.loginResult.send(userdata)
+            self?.response = .success(userdata)
             
         } fail: { [weak self] error in
             self?.isLoading = false
-            self?.loginResult.send(completion: .failure(error))
+            self?.response = .failure(error)
         }   
     }
+    
     
     func userNameValidation(_ text : String) -> Bool {
         

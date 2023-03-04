@@ -44,7 +44,7 @@
                                         <constraint firstAttribute="height" constant="40" id="FJL-fM-dgU"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="40"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OKJ-IY-oJH">
                                     <rect key="frame" x="0.0" y="40" width="94" height="4"/>
@@ -75,7 +75,7 @@
                                         <constraint firstAttribute="height" constant="40" id="mOd-tc-PFf"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="40"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oS2-bH-5w2">
                                     <rect key="frame" x="0.0" y="40" width="94" height="4"/>
@@ -106,7 +106,7 @@
                                         <constraint firstAttribute="height" constant="40" id="F21-gM-XcV"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="40"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSL-h7-eHC">
                                     <rect key="frame" x="0.0" y="40" width="94" height="4"/>
@@ -137,7 +137,7 @@
                                         <constraint firstAttribute="height" constant="40" id="uDr-lp-Zex"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="CircularStd-Book" family="Circular Std" pointSize="40"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OpO-5D-UT0">
                                     <rect key="frame" x="0.0" y="40" width="94" height="4"/>
