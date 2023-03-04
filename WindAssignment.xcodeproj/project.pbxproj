@@ -18,7 +18,6 @@
 		CB9A5A0229AFCFBD007D6495 /* NavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9A59FD29AFCFBC007D6495 /* NavigationBar.xib */; };
 		CB9A5A0329AFCFBD007D6495 /* NavigationBarWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A59FF29AFCFBC007D6495 /* NavigationBarWithButton.swift */; };
 		CB9A5A0429AFCFBD007D6495 /* NavigationBarWithButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB9A5A0029AFCFBC007D6495 /* NavigationBarWithButton.xib */; };
-		CB9A5A0829AFD7F8007D6495 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A5A0729AFD7F8007D6495 /* BaseViewController.swift */; };
 		CB9A5A1229AFD895007D6495 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A5A0929AFD894007D6495 /* Reachability.swift */; };
 		CB9A5A1329AFD895007D6495 /* UDService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A5A0A29AFD894007D6495 /* UDService.swift */; };
 		CB9A5A1429AFD895007D6495 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A5A0B29AFD894007D6495 /* Colors.swift */; };
@@ -28,6 +27,7 @@
 		CB9A5A1829AFD895007D6495 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A5A0F29AFD895007D6495 /* Constants.swift */; };
 		CB9A5A1929AFD895007D6495 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A5A1029AFD895007D6495 /* Loader.swift */; };
 		CB9A5A1A29AFD895007D6495 /* AppProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A5A1129AFD895007D6495 /* AppProperties.swift */; };
+		CBB12DDB29B39726007E47B0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB12DDA29B39726007E47B0 /* UIViewController+Extension.swift */; };
 		CBB5C2E629B259F4002FA72B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5C2E529B259F4002FA72B /* LoginViewModel.swift */; };
 		CBB5C2E829B280B3002FA72B /* SendFundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5C2E729B280B3002FA72B /* SendFundViewModel.swift */; };
 		CBB5C2EA29B29AAA002FA72B /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB5C2E929B29AA9002FA72B /* Double+Extension.swift */; };
@@ -35,6 +35,11 @@
 		CBC45D7529B1F3DC004EBA78 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC45D7429B1F3DB004EBA78 /* LoginResponse.swift */; };
 		CBC45D7829B1FA13004EBA78 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC45D7729B1FA13004EBA78 /* NetworkError.swift */; };
 		CBC45D7A29B1FD2B004EBA78 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC45D7929B1FD2B004EBA78 /* ServiceManager.swift */; };
+		CBCA38E529B3711800540290 /* OTPPinTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA38E429B3711800540290 /* OTPPinTextField.swift */; };
+		CBCA38E729B37A6500540290 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA38E629B37A6500540290 /* UILabel+Extension.swift */; };
+		CBCA38E929B3842D00540290 /* PinStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA38E829B3842D00540290 /* PinStackView.swift */; };
+		CBCA38EB29B3843D00540290 /* PinStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBCA38EA29B3843D00540290 /* PinStackView.xib */; };
+		CBCA38ED29B3867900540290 /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCA38EC29B3867900540290 /* OTPTextField.swift */; };
 		CBCBA51729AFB8DE0049B245 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCBA51629AFB8DE0049B245 /* AppDelegate.swift */; };
 		CBCBA51929AFB8DE0049B245 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCBA51829AFB8DE0049B245 /* SceneDelegate.swift */; };
 		CBCBA51B29AFB8DE0049B245 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCBA51A29AFB8DE0049B245 /* LoginViewController.swift */; };
@@ -48,8 +53,6 @@
 		CBCC73ED29B081C90093E643 /* LeftIconTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBCC73EB29B081C90093E643 /* LeftIconTextField.xib */; };
 		CBCC73EF29B082BF0093E643 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC73EE29B082BF0093E643 /* UITextField+Extension.swift */; };
 		CBCC73F229B086050093E643 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC73F129B086050093E643 /* BaseButton.swift */; };
-		CBCC73F429B0A1CA0093E643 /* PinField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC73F329B0A1CA0093E643 /* PinField.swift */; };
-		CBCC73F629B0A1EC0093E643 /* PinField.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBCC73F529B0A1EC0093E643 /* PinField.xib */; };
 		CBCC73FF29B0F0720093E643 /* SendFundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC73FE29B0F0710093E643 /* SendFundViewController.swift */; };
 		CBCC740229B114450093E643 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC740129B114440093E643 /* UIView+Extension.swift */; };
 		CBCC740429B115D40093E643 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC740329B115D40093E643 /* UIImageView+Extension.swift */; };
@@ -92,7 +95,6 @@
 		CB9A59FD29AFCFBC007D6495 /* NavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
 		CB9A59FF29AFCFBC007D6495 /* NavigationBarWithButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarWithButton.swift; sourceTree = "<group>"; };
 		CB9A5A0029AFCFBC007D6495 /* NavigationBarWithButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationBarWithButton.xib; sourceTree = "<group>"; };
-		CB9A5A0729AFD7F8007D6495 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CB9A5A0929AFD894007D6495 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		CB9A5A0A29AFD894007D6495 /* UDService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UDService.swift; sourceTree = "<group>"; };
 		CB9A5A0B29AFD894007D6495 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		CB9A5A0F29AFD895007D6495 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CB9A5A1029AFD895007D6495 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		CB9A5A1129AFD895007D6495 /* AppProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppProperties.swift; sourceTree = "<group>"; };
+		CBB12DDA29B39726007E47B0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		CBB5C2E529B259F4002FA72B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CBB5C2E729B280B3002FA72B /* SendFundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFundViewModel.swift; sourceTree = "<group>"; };
 		CBB5C2E929B29AA9002FA72B /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
@@ -109,6 +112,11 @@
 		CBC45D7429B1F3DB004EBA78 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		CBC45D7729B1FA13004EBA78 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		CBC45D7929B1FD2B004EBA78 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		CBCA38E429B3711800540290 /* OTPPinTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPPinTextField.swift; sourceTree = "<group>"; };
+		CBCA38E629B37A6500540290 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		CBCA38E829B3842D00540290 /* PinStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinStackView.swift; sourceTree = "<group>"; };
+		CBCA38EA29B3843D00540290 /* PinStackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinStackView.xib; sourceTree = "<group>"; };
+		CBCA38EC29B3867900540290 /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		CBCBA51329AFB8DE0049B245 /* WindAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WindAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBCBA51629AFB8DE0049B245 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CBCBA51829AFB8DE0049B245 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,8 +134,6 @@
 		CBCC73EB29B081C90093E643 /* LeftIconTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftIconTextField.xib; sourceTree = "<group>"; };
 		CBCC73EE29B082BF0093E643 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		CBCC73F129B086050093E643 /* BaseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
-		CBCC73F329B0A1CA0093E643 /* PinField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinField.swift; sourceTree = "<group>"; };
-		CBCC73F529B0A1EC0093E643 /* PinField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinField.xib; sourceTree = "<group>"; };
 		CBCC73FE29B0F0710093E643 /* SendFundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendFundViewController.swift; sourceTree = "<group>"; };
 		CBCC740129B114440093E643 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		CBCC740329B115D40093E643 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -254,7 +260,6 @@
 		CB9A5A0529AFD7D7007D6495 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				CB9A5A0729AFD7F8007D6495 /* BaseViewController.swift */,
 				CB9A5A0629AFD7E3007D6495 /* Extensions */,
 				CB9A59F929AFCF34007D6495 /* Utils */,
 			);
@@ -271,6 +276,8 @@
 				CBCC740929B1254F0093E643 /* CGPoint+Extension.swift */,
 				CBCC740D29B130D80093E643 /* UIButton+Extension.swift */,
 				CBB5C2E929B29AA9002FA72B /* Double+Extension.swift */,
+				CBCA38E629B37A6500540290 /* UILabel+Extension.swift */,
+				CBB12DDA29B39726007E47B0 /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -421,8 +428,10 @@
 			children = (
 				CBCC73EA29B081C90093E643 /* LeftIconTextField.swift */,
 				CBCC73EB29B081C90093E643 /* LeftIconTextField.xib */,
-				CBCC73F329B0A1CA0093E643 /* PinField.swift */,
-				CBCC73F529B0A1EC0093E643 /* PinField.xib */,
+				CBCA38E429B3711800540290 /* OTPPinTextField.swift */,
+				CBCA38E829B3842D00540290 /* PinStackView.swift */,
+				CBCA38EA29B3843D00540290 /* PinStackView.xib */,
+				CBCA38EC29B3867900540290 /* OTPTextField.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -561,7 +570,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBCC73F629B0A1EC0093E643 /* PinField.xib in Resources */,
 				CBCBA52329AFB8E30049B245 /* LaunchScreen.storyboard in Resources */,
 				CBCC73ED29B081C90093E643 /* LeftIconTextField.xib in Resources */,
 				CB9A59F429AFC7E4007D6495 /* CircularStd-Bold.otf in Resources */,
@@ -570,6 +578,7 @@
 				CB9A59F529AFC7E4007D6495 /* CircularStd-Light.otf in Resources */,
 				CBCBA51E29AFB8DE0049B245 /* Main.storyboard in Resources */,
 				CB9A59F629AFC7E4007D6495 /* CircularStd-Medium.otf in Resources */,
+				CBCA38EB29B3843D00540290 /* PinStackView.xib in Resources */,
 				CB9A5A0229AFCFBD007D6495 /* NavigationBar.xib in Resources */,
 				CB9A5A0429AFCFBD007D6495 /* NavigationBarWithButton.xib in Resources */,
 			);
@@ -704,15 +713,18 @@
 				CB9A5A1429AFD895007D6495 /* Colors.swift in Sources */,
 				CBCC740829B11DE40093E643 /* UIImage+Extension.swift in Sources */,
 				CBB5C2EA29B29AAA002FA72B /* Double+Extension.swift in Sources */,
+				CBCA38ED29B3867900540290 /* OTPTextField.swift in Sources */,
+				CBCA38E929B3842D00540290 /* PinStackView.swift in Sources */,
 				CB9A5A1A29AFD895007D6495 /* AppProperties.swift in Sources */,
+				CBB12DDB29B39726007E47B0 /* UIViewController+Extension.swift in Sources */,
 				CBCBA51B29AFB8DE0049B245 /* LoginViewController.swift in Sources */,
 				CBC45D7A29B1FD2B004EBA78 /* ServiceManager.swift in Sources */,
+				CBCA38E729B37A6500540290 /* UILabel+Extension.swift in Sources */,
 				CB9A5A1729AFD895007D6495 /* Fonts.swift in Sources */,
 				CBC45D7529B1F3DC004EBA78 /* LoginResponse.swift in Sources */,
 				CB9A5A0329AFCFBD007D6495 /* NavigationBarWithButton.swift in Sources */,
 				CBC45D7829B1FA13004EBA78 /* NetworkError.swift in Sources */,
 				CBB5C2E829B280B3002FA72B /* SendFundViewModel.swift in Sources */,
-				CBCC73F429B0A1CA0093E643 /* PinField.swift in Sources */,
 				CBCBA51729AFB8DE0049B245 /* AppDelegate.swift in Sources */,
 				CB9A5A1829AFD895007D6495 /* Constants.swift in Sources */,
 				CB9A5A1329AFD895007D6495 /* UDService.swift in Sources */,
@@ -723,11 +735,11 @@
 				CB9A5A1929AFD895007D6495 /* Loader.swift in Sources */,
 				CBB5C2E629B259F4002FA72B /* LoginViewModel.swift in Sources */,
 				CBCC740229B114450093E643 /* UIView+Extension.swift in Sources */,
-				CB9A5A0829AFD7F8007D6495 /* BaseViewController.swift in Sources */,
 				CBCC740A29B1254F0093E643 /* CGPoint+Extension.swift in Sources */,
 				CBCC73EC29B081C90093E643 /* LeftIconTextField.swift in Sources */,
 				CBCC740429B115D40093E643 /* UIImageView+Extension.swift in Sources */,
 				CBCC73FF29B0F0720093E643 /* SendFundViewController.swift in Sources */,
+				CBCA38E529B3711800540290 /* OTPPinTextField.swift in Sources */,
 				CBCC740629B11D660093E643 /* GradientLabel.swift in Sources */,
 				CBCC73F229B086050093E643 /* BaseButton.swift in Sources */,
 				CBCC73EF29B082BF0093E643 /* UITextField+Extension.swift in Sources */,

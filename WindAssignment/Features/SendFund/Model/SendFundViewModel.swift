@@ -35,7 +35,7 @@ class SendFundViewModel : ObservableObject {
 
             guard let value = Double(input) else { return max }
 
-            return (max - value).roundToDecimal(5) }
+            return (max - value) }
         .eraseToAnyPublisher()
     
     private(set) lazy var maxSelected : AnyPublisher<Bool, Never> = Publishers.CombineLatest($inputValue, $maxBalance)

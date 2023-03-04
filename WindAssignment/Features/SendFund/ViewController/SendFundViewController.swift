@@ -119,7 +119,8 @@ class SendFundViewController: UIViewController, StoryboardSceneBased {
                 .sink(receiveValue: { [weak self] value in
                     
                     if let currency = self?.userData.accountInfo.currency {
-                        self?.balanceLabel.text = "Balance \(currency) \(value)"
+                        let readableValue = String(format: "%.5f", value)
+                        self?.balanceLabel.text = "Balance \(currency) \(readableValue)"
                     }
                 })
                 .store(in: &bindings)

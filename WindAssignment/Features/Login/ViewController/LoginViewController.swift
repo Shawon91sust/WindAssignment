@@ -9,7 +9,7 @@ import Combine
 import UIKit
 import Reusable
 
-class LoginViewController: BaseViewController, StoryboardSceneBased {
+class LoginViewController: UIViewController, StoryboardSceneBased {
     
     static let sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
@@ -17,8 +17,8 @@ class LoginViewController: BaseViewController, StoryboardSceneBased {
     private var bindings = Set<AnyCancellable>()
     
     @IBOutlet weak var userNameField: LeftIconTextField!
-    @IBOutlet weak var pinField: PinField!
     @IBOutlet weak var loginButton: BaseButton!
+    @IBOutlet weak var pinStackView: PinStackView!
     
     var isLoading: Bool = false {
         didSet { isLoading ? showLoader() : hideLoader() }
@@ -37,7 +37,28 @@ class LoginViewController: BaseViewController, StoryboardSceneBased {
         userNameField.type = .userNameField
         loginButton.type = .cont
         userNameField.textField.becomeFirstResponder()
-        //loginButton.isValid = true
+        userNameField.textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        userNameField.textField.delegate = self
+        pinStackView.delegate = self
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        
+        guard let text = textField.text else { return }
+        textField.text = text.lowercased()
+        
+        print(userNameValidation(text.lowercased()))
+    }
+    
+    func userNameValidation(_ text : String) -> Bool {
+        
+        //"^(?=.*[a-z].*[a-z].*[a-z]){3,32}[a-z0-9_.]{3,32}$"
+        //"^(?!.*[.]{2})(?!.*[_]{2})[a-z0-9_.]{3,32}$"
+       
+        let validation = NSPredicate(format:"SELF MATCHES %@", "^(?!.*[.]{2})(?!.*[_]{2})(?=.*[a-z].*[a-z].*[a-z])[a-z0-9_.]{3,32}$")
+        
+        return validation.evaluate(with: text)
+        
     }
     
     private func setUpBindings() {
@@ -46,17 +67,21 @@ class LoginViewController: BaseViewController, StoryboardSceneBased {
                 .receive(on: DispatchQueue.main)
                 .assign(to: \.userName, on: loginViewModel)
                 .store(in: &bindings)
-            
-            pinField.fourthField.textPublisher
-                .receive(on: RunLoop.main)
-                .assign(to: \.pin, on: loginViewModel)
-                .store(in: &bindings)
         }
         
         func bindViewModelToView() {
             loginViewModel.isInputValid
                 .receive(on: RunLoop.main)
                 .assign(to: \.isValid, on: self.loginButton)
+                .store(in: &bindings)
+            
+            loginViewModel.isUserNameValid
+                .receive(on: RunLoop.main)
+                .sink(receiveValue: { [weak self] value in
+                    if(value) {
+                        self?.pinStackView.startPinInput()
+                    }
+                })
                 .store(in: &bindings)
             
             loginViewModel.$isLoading
@@ -96,6 +121,29 @@ class LoginViewController: BaseViewController, StoryboardSceneBased {
         self.navigationController?.pushViewController(vc, animated: true)
         
         self.view.endEditing(true)
+    }
+    
+}
+
+
+extension LoginViewController : UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        guard let preText = textField.text as NSString?,
+              preText.replacingCharacters(in: range, with: string).count <= 32 else {
+            return false
+        }
+        
+        return true
+    }
+}
+
+extension LoginViewController: OTPDelegate {
+    
+    func didChangeValidity(isValid: Bool) {
+        
+        loginViewModel.pin = pinStackView.getOTP()
+        print(pinStackView.getOTP())
     }
     
 }
