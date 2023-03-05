@@ -133,11 +133,12 @@ class SendFundViewController: UIViewController, StoryboardSceneBased {
                 })
                 .store(in: &bindings)
             
-            sendFundViewModel.insufficientBalance
+            sendFundViewModel.sufficientBalance
                 .receive(on: RunLoop.main)
-                .sink(receiveValue: { [weak self] insufficient in
-                    self?.insufficientLabel.isHidden = insufficient
-                    self?.addFundButton.isHidden = insufficient
+                .sink(receiveValue: { [weak self] sufficient in
+                    print(sufficient)
+                    self?.insufficientLabel.isHidden = sufficient
+                    self?.addFundButton.isHidden = sufficient
                 })
                 .store(in: &bindings)
             

@@ -42,22 +42,22 @@ class SendFundViewModel : ObservableObject {
             return (max == value) }
         .eraseToAnyPublisher()
     
-    private(set) lazy var insufficientBalance = Publishers.CombineLatest($inputValue, $maxBalance)
+    private(set) lazy var sufficientBalance = Publishers.CombineLatest($inputValue, $maxBalance)
         .map { input, max in
 
             guard let value = Double(input) else { return true }
-            return (max >= value) }
+            return (value <= max ) }
         .eraseToAnyPublisher()
     
     
     init() {}
     
-    func remainingFund() -> AnyPublisher<Double, Never> {
-        return Publishers.CombineLatest($inputValue, $maxBalance)
-            .map { input, max  in
-                guard let value = Double(input) else { return max}
-                return (max - value).roundToDecimal(5)
-            }
-            .eraseToAnyPublisher()
-    }  
+//    func remainingFund() -> AnyPublisher<Double, Never> {
+//        return Publishers.CombineLatest($inputValue, $maxBalance)
+//            .map { input, max  in
+//                guard let value = Double(input) else { return max}
+//                return (max - value).roundToDecimal(5)
+//            }
+//            .eraseToAnyPublisher()
+//    }  
 }

@@ -66,7 +66,8 @@ class LoginViewController: UIViewController, StoryboardSceneBased {
     private func setUpBindings() {
         func bindViewToViewModel() {
             userNameField.textField.textPublisher
-                .receive(on: DispatchQueue.main)
+                .debounce(for: 0.5, scheduler: RunLoop.main)
+                .receive(on: RunLoop.main)
                 .assign(to: \.userName, on: loginViewModel)
                 .store(in: &bindings)
         }

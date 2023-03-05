@@ -10,8 +10,6 @@ import Combine
 
 class LoginService {
     
-    
-    
     func performLogin(params: Params ,success: @escaping ((LoginResponse) -> Void), fail: @escaping ((NetworkError) -> Void)) {
         
         let loginUrl = GetPath(.Login)
@@ -22,8 +20,6 @@ class LoginService {
             fail(error)
         }
     }
-    
-    
     
     func performLoginDemo(success: @escaping ((LoginResponse) -> Void), fail: @escaping ((NetworkError) -> Void)) {
         let jsonStr = """
@@ -48,7 +44,8 @@ class LoginService {
           }
         }
     """
-
+        
+        
         let data = jsonStr.data(using: .utf8)!
         
         if let response = try? JSONDecoder().decode(LoginResponse.self, from: data) {
@@ -56,8 +53,6 @@ class LoginService {
         } else {
             fail(.invalidResponse)
         }
-        
-        
-        
     }
+    
 }
