@@ -24,6 +24,10 @@ class LoginViewController: UIViewController, StoryboardSceneBased {
     @IBOutlet weak var loginButton: BaseButton!
     @IBOutlet weak var pinStackView: PinStackView!
     
+    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_."
+
+    
+    
     var isLoading: Bool = false {
         didSet { isLoading ? showLoader() : hideLoader() }
     }
@@ -140,13 +144,22 @@ class LoginViewController: UIViewController, StoryboardSceneBased {
 
 extension LoginViewController : UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        guard let preText = textField.text as NSString?,
-              preText.replacingCharacters(in: range, with: string).count <= 32 else {
+        if(range.location <= 32) {
+            
+            guard let text = textField.text else { return false }
+            
+            if((text.last == "_" && text.last == string.first) || (text.last == "." && text.last == string.first)) {
+                return false
+            } else {
+                let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+                let filtered = string.components(separatedBy: cs).joined(separator: "")
+                
+                return (string == filtered)
+            }
+        } else {
             return false
         }
-        
-        return true
+
     }
 }
 
